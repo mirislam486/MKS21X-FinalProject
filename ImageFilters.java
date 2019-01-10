@@ -17,4 +17,12 @@ public class ImageFilters{
 
   }
 
+  public void blur(int[] pixels){
+
+  }
+
+  public void sharpen(int[] pixels){
+    
+  }
+
 }
