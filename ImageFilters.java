@@ -12,4 +12,9 @@ public class ImageFilters{
       }
     }
   }
+
+  public void grayscale(int[] pixels){
+
+  }
+
 }
