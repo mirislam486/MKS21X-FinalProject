@@ -13,7 +13,7 @@ public class ImageFilters{
     //}
   }
 
-  private void setupArr(String imgFile){
+  private void openFile(String imgFile){
     try{
       BufferedImage image = new ImageIO.read(new File(imgFile));
     } catch (FileNotFoundException e) {
