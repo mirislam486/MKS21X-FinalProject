@@ -3,11 +3,9 @@ import java.awt.image.BufferedImage;
 import javax.imageio;
 public class ImageFilters{
   private int[][] colorArray;
-  public String imgFile;
 
-  public ImageFilters(){
-    File imgFile = new File(fileName);
-    BufferedImage image = new ImageIO.read(new File(imgFile));
+  public ImageFilters(String imgFile){
+    //File imgFile = new File(fileName);
     //for(int i = 0; i < imgFile.getwidth(); i++){
       //for(int z = 0; z < imgFile.getheight(); z++){
           //colorArray[i][h] = imageFile(imgFile.getRGB(i, z));
@@ -15,7 +13,15 @@ public class ImageFilters{
     //}
   }
 
-  public int grayscale(int[] pixels){
+  private void setupArr(String imgFile){
+    try{
+      BufferedImage image = new ImageIO.read(new File(imgFile));
+    } catch (FileNotFoundException e) {
+        System.out.println("File not found: " + imgFile);
+        }
+  }
+
+  public int grayscale(int ycor, int xcor, String imgFile){
     return 0;
   }
 
