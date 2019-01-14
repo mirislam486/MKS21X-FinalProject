@@ -1,28 +1,47 @@
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import javax.imageio;
+import javax.imageio.ImageIO;
+import java.io.*;
+import java.awt.image.WritableRaster;
+import java.awt.image.DataBufferByte;
 public class ImageFilters{
-  private int[][] colorArray;
+  public int[][] colorArray;
+  public BufferedImage ogImage;
 
-  public ImageFilters(String imgFile){
+  public ImageFilters(String imgFile) throws IOException{
+    openFile(imgFile);
+    //openFile("cake.jpg");
     //File imgFile = new File(fileName);
-    //for(int i = 0; i < imgFile.getwidth(); i++){
-      //for(int z = 0; z < imgFile.getheight(); z++){
-          //colorArray[i][h] = imageFile(imgFile.getRGB(i, z));
+    //for(int i = 0; i < ogImage.getwidth(); i++){
+      //for(int z = 0; z < ogImage.getheight(); z++){
+          //colorArray[i][z] = ogImage.getRGB(i, z);
       //}
     //}
   }
 
-  private void openFile(String imgFile){
-    try{
-      BufferedImage image = new ImageIO.read(new File(imgFile));
-    } catch (FileNotFoundException e) {
-        System.out.println("File not found: " + imgFile);
-        }
+  public void openFile(String imgFile) throws IOException{
+    //imgFile = "cake.jpg";
+    //try{
+      File original = new File(imgFile);
+      ogImage = ImageIO.read(original);
+      WritableRaster raster = ogImage .getRaster();
+      //DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+    //} catch (FileNotFoundException e) {
+        //System.out.println("File not found: " + imgFile);
+        //}
+    //try{
+      //BufferedImage image = ImageIO.read(new File(imgFile));
+    //} catch (FileNotFoundException e) {
+      //  System.out.println("File not found: " + imgFile);
+        //}
   }
 
-  public int grayscale(int ycor, int xcor, String imgFile){
-    return 0;
+  public void getWidth(){
+
+  }
+
+  public BufferedImage grayscale(int ycor, int xcor){
+
   }
 
   public int blur(int[] pixels){
@@ -33,8 +52,5 @@ public class ImageFilters{
     return 0;
   }
 
-  public static void main(String[] args){
-    System.out.println(imgFile);
-  }
 
 }
