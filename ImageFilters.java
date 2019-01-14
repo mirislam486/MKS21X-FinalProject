@@ -2,46 +2,37 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.*;
-import java.awt.image.WritableRaster;
 import java.awt.image.DataBufferByte;
 public class ImageFilters{
-  public int[][] colorArray;
-  public BufferedImage ogImage;
+  public static int[][] colorArray;
+  public static BufferedImage ogImage;
+  public static String imgFile;
 
   public ImageFilters(String imgFile) throws IOException{
     openFile(imgFile);
-    //openFile("cake.jpg");
-    //File imgFile = new File(fileName);
-    //for(int i = 0; i < ogImage.getwidth(); i++){
-      //for(int z = 0; z < ogImage.getheight(); z++){
-          //colorArray[i][z] = ogImage.getRGB(i, z);
-      //}
-    //}
   }
 
-  public void openFile(String imgFile) throws IOException{
-    //imgFile = "cake.jpg";
-    //try{
+  public static void openFile(String imgFile) throws IOException{
       File original = new File(imgFile);
       ogImage = ImageIO.read(original);
-      WritableRaster raster = ogImage .getRaster();
-      //DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
-    //} catch (FileNotFoundException e) {
-        //System.out.println("File not found: " + imgFile);
-        //}
-    //try{
-      //BufferedImage image = ImageIO.read(new File(imgFile));
-    //} catch (FileNotFoundException e) {
-      //  System.out.println("File not found: " + imgFile);
-        //}
   }
 
-  public void getWidth(){
+  private static int[][] getPixels(){
+        int width = ogImage.getWidth();
+        int height = ogImage.getHeight();
+        colorArray = new int[height][width];
 
-  }
+        for (int ycor = 0; ycor < height; ycor++) {
+           for (int xcor = 0; xcor < width; xcor++) {
+              colorArray[ycor][xcor] = ogImage.getRGB(xcor, ycor);
+           }
+        }
 
-  public BufferedImage grayscale(int ycor, int xcor){
+        return colorArray;
+     }
 
+  public int grayscale(int ycor, int xcor){
+    return 0;
   }
 
   public int blur(int[] pixels){
@@ -52,5 +43,8 @@ public class ImageFilters{
     return 0;
   }
 
-
+  public static void main(String[] args){
+    imgFile = "cake.jpg";
+    System.out.println(colorArray);
+  }
 }
