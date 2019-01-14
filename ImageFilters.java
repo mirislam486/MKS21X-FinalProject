@@ -10,6 +10,7 @@ public class ImageFilters{
 
   public ImageFilters(String imgFile) throws IOException{
     openFile(imgFile);
+    getPixels();
   }
 
   public static void openFile(String imgFile) throws IOException{
