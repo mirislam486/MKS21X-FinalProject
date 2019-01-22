@@ -1,9 +1,7 @@
-import java.io.*;
-import java.util.*;
 public class Driver{
-  public static void main(String[] args) throws IOException{
-    ImageFilters newFile = new ImageFilters("cake.jpg");
-    System.out.println(newFile.info());
+  public static void main(String[] args){
+    //ImageFilters newFile = new ImageFilters("cake.jpg");
+    //System.out.println(newFile.info());
     //try{
      //f = new File("C:\\Users\\Mir Sadia\\Desktop\\APCS\\MKS21X-FinalProject\\cake.jpg");
      //ogImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);

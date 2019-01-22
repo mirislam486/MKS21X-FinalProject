@@ -4,18 +4,21 @@ import javax.imageio.ImageIO;
 import java.io.*;
 import java.awt.image.DataBufferByte;
 import java.util.*;
-import java.awt.Graphics2D;
 public class ImageFilters{
   public static BufferedImage ogImage;
-  public static Graphics2D newImage;
   public static String imgFile;
   public int height;
   public int width;
 
 
-  public ImageFilters(String imgFile)throws IOException{
-    File original = new File(imgFile);
-    ogImage = ImageIO.read(original);
+  public ImageFilters(String imgFile){
+    //File original = new File(imgFile);
+    //ogImage = ImageIO.read(original);
+      BufferedImage ogImage = null;
+  try {
+  ogImage = ImageIO.read(new File(imgFile));
+  } catch (IOException e) {
+  }
     //width = ogImage.getWidth();
     //height = ogImage.getHeight();
     //for(int x = 0; x < width; x++){
@@ -26,8 +29,8 @@ public class ImageFilters{
   }
 
 
-  public static void setStuff(){
-
+  public static int setStuff(){
+    return 0;
   }
 
   public static String toString(int input){
