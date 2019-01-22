@@ -1,5 +1,6 @@
 public class Driver{
   public static void main(String[] args){
+    System.out.println(grayscale());
     //ImageFilters newFile = new ImageFilters("cake.jpg");
     //System.out.println(newFile.info());
     //try{
@@ -16,6 +17,5 @@ public class Driver{
     //  }catch(IOException e){
       //  System.out.println("Error: "+e);
       //}
-  // System.out.prinln(grayscale());
     }
 }

@@ -58,6 +58,12 @@ public class ImageFilters{
         ogImage.setRGB(x, y, newRGB);
       }
     }
+    try {
+    File outputfile = new File("saved.jpg");
+    ImageIO.write(ogImage, "jpg", outputfile);
+} catch (IOException e) {
+
+}
     return true;
   }
 
