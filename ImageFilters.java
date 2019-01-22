@@ -14,7 +14,7 @@ public class ImageFilters{
   public ImageFilters(String imgFile){
     //File original = new File(imgFile);
     //ogImage = ImageIO.read(original);
-      BufferedImage ogImage = null;
+      //BufferedImage ogImage = null;
   try {
   ogImage = ImageIO.read(new File(imgFile));
   } catch (IOException e) {
@@ -54,7 +54,7 @@ public class ImageFilters{
     for(int x = 0; x < width; x++){
       for(int y = 0; y < height; y++){
         int oldRGB = ogImage.getRGB(x, y);
-        int newRGB = oldRGB / 5;
+        int newRGB = oldRGB / 10000;
         ogImage.setRGB(x, y, newRGB);
       }
     }
@@ -75,10 +75,22 @@ public class ImageFilters{
         ogImage.setRGB(x, y, 1);
       }
     }
+    try {
+    File outputfile = new File("saved.jpg");
+    ImageIO.write(ogImage, "jpg", outputfile);
+} catch (IOException e) {
+
+}
     return 0;
     }
 
   public String info(){
+    try {
+    File outputfile = new File("saved.jpg");
+    ImageIO.write(ogImage, "jpg", outputfile);
+} catch (IOException e) {
+
+}
     return ogImage.toString();
   }
 

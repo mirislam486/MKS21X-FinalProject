@@ -1,8 +1,14 @@
+import java.util.Scanner;
 public class Driver{
   public static void main(String[] args){
-    System.out.println(grayscale());
-    //ImageFilters newFile = new ImageFilters("cake.jpg");
-    //System.out.println(newFile.info());
+
+    Scanner reader = new Scanner(System.in);  // Reading from System.in
+    System.out.println("Enter an Image File Name: ");
+    String imgFile = reader.next(); // Scans the next token of the input as an int.
+//once finished
+    reader.close();
+    ImageFilters newFile = new ImageFilters(imgFile);
+    System.out.println(newFile.info());
     //try{
      //f = new File("C:\\Users\\Mir Sadia\\Desktop\\APCS\\MKS21X-FinalProject\\cake.jpg");
      //ogImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
@@ -18,4 +24,4 @@ public class Driver{
       //  System.out.println("Error: "+e);
       //}
     }
-}
+  }
