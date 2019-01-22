@@ -19,42 +19,25 @@ public class ImageFilters{
   ogImage = ImageIO.read(new File(imgFile));
   } catch (IOException e) {
   }
-    //width = ogImage.getWidth();
-    //height = ogImage.getHeight();
-    //for(int x = 0; x < width; x++){
-      //for(int y = 0; y < height; y++){
-        // pixels.add(toString(ogImage.getRGB(x, y)));
-       //}
-     //}
+
   }
 
 
-  public static int setStuff(){
-    return 0;
-  }
+
 
   public static String toString(int input){
     return input + "";
   }
 
-  //public static void pixelArray(){
-  //  ArrayList<String> pixels = new ArrayList<String>();
-  //  width = ogImage.getWidth();
-  //  height = ogImage.getHeight();
-  //  for(int x = 0; x < width; x++){
-  //    for(int y = 0; y < height; y++){
-    //     pixels.add(toString(ogImage.getRGB(x, y)));
-    //  }
-    //}
-  //}
 
-  public boolean grayscale(){
+
+  public boolean warmColor(){
     width = ogImage.getWidth();
     height = ogImage.getHeight();
     for(int x = 0; x < width; x++){
       for(int y = 0; y < height; y++){
         int oldRGB = ogImage.getRGB(x, y);
-        int newRGB = oldRGB / 10000;
+        int newRGB = oldRGB / 100;
         ogImage.setRGB(x, y, newRGB);
       }
     }
@@ -67,12 +50,51 @@ public class ImageFilters{
     return true;
   }
 
-  public int clear(){
+  public boolean grayscale(){
+    width = ogImage.getWidth();
+    height = ogImage.getHeight();
+    for(int x = 0; x < width; x++){
+      for(int y = 0; y < height; y++){
+        int oldRGB = ogImage.getRGB(x, y);
+          int newRGB = oldRGB / 350000;
+          ogImage.setRGB(x, y, newRGB);
+        }
+    }
+    try {
+    File outputfile = new File("saved.jpg");
+    ImageIO.write(ogImage, "jpg", outputfile);
+} catch (IOException e) {
+
+}
+    return true;
+  }
+
+  public boolean rainbow(int intensity){ //A rainbow filter
+    width = ogImage.getWidth();
+    height = ogImage.getHeight();
+    for(int x = 0; x < width; x++){
+      for(int y = 0; y < height; y++){
+        int oldRGB = ogImage.getRGB(x, y);
+          int newRGB = oldRGB * intensity;
+          ogImage.setRGB(x, y, newRGB);
+        }
+    }
+    try {
+    File outputfile = new File("saved.jpg");
+    ImageIO.write(ogImage, "jpg", outputfile);
+} catch (IOException e) {
+
+}
+    return true;
+  }
+
+
+  public boolean clear(int num){ //Turns the image completely black
     int width = ogImage.getWidth();
     int height = ogImage.getHeight();
     for(int x = 0; x < width; x++){
       for(int y = 0; y < height; y++){
-        ogImage.setRGB(x, y, 1);
+        ogImage.setRGB(x, y, num);
       }
     }
     try {
@@ -81,7 +103,7 @@ public class ImageFilters{
 } catch (IOException e) {
 
 }
-    return 0;
+    return true;
     }
 
   public String info(){
@@ -94,9 +116,5 @@ public class ImageFilters{
     return ogImage.toString();
   }
 
-public boolean transparency(double magnitude){
-  //ogImage.setTransparency(magnitude);
-  return false;
-}
 
 }

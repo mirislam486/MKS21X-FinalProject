@@ -3,25 +3,45 @@ public class Driver{
   public static void main(String[] args){
 
     Scanner reader = new Scanner(System.in);  // Reading from System.in
-    System.out.println("Enter an Image File Name: ");
-    String imgFile = reader.next(); // Scans the next token of the input as an int.
+    System.out.println("1. Grayscale\n2. Clear Canvas\n3. Image Info\n4. Warm Color\n5. Rainbow \n Which One: ");
+    int input = reader.nextInt(); // Scans the next token of the input as an int.
 //once finished
-    reader.close();
-    ImageFilters newFile = new ImageFilters(imgFile);
-    System.out.println(newFile.info());
-    //try{
-     //f = new File("C:\\Users\\Mir Sadia\\Desktop\\APCS\\MKS21X-FinalProject\\cake.jpg");
-     //ogImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-     //ogImage = ImageIO.read(f);
-   //}catch(IOException e){
-     //System.out.println("Error: "+e);
-   //}
-   //try{
-    //    f = new File("D:\\Image\\Output.jpg");
-      //  ImageIO.write(image, "jpg", f);
-        //System.out.println("Writing complete.");
-    //  }catch(IOException e){
-      //  System.out.println("Error: "+e);
-      //}
+    ImageFilters newFile = new ImageFilters("cake.jpg");
+
+    if (input == 1){
+      System.out.println(newFile.grayscale());
+
+
+    } else if(input == 2){
+      Scanner readi = new Scanner(System.in);
+
+      System.out.println("Choose a number less than or equal to 1:");
+      int choice = reader.nextInt();
+      if(choice <= 1){
+        System.out.println(newFile.clear(choice));
+      } else{
+        System.out.println("Please try again with a different Number :'(");
+      }
+
+    } else if(input == 3){
+      System.out.println(newFile.info());
+
+
+    } else if(input == 4){
+      System.out.println(newFile.warmColor());
+
+
+    } else if(input == 5){
+      Scanner readagain = new Scanner(System.in);
+
+
+      System.out.println("Choose an intensity:");
+
+      int intensity = reader.nextInt();
+
+      System.out.println(newFile.rainbow(intensity));
+    }
+      System.out.println("Done!");
+      reader.close();
     }
   }
