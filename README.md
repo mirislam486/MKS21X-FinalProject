@@ -19,4 +19,13 @@ I made a lot of progress in actually getting it to compile and run at least. I r
 I got a pixel to return but it's a negative number.
 
 01/16/19
-I used an ArrayList instead of a regular array to have all the pixels in one place. This ended up working much much better because I did get an array with the pixels. However, the only problem is that the pixels end up returning in negative integers. I'm still not sure how to get them to return as separate red, green, and blue values. 
+I used an ArrayList instead of a regular array to have all the pixels in one place. This ended up working much much better because I did get an array with the pixels. However, the only problem is that the pixels end up returning in negative integers. I'm still not sure how to get them to return as separate red, green, and blue values.
+
+01/18/19
+I started working on a driver class.
+
+01/20/19
+I got the edited image to save in a new jpg file and open on it's own. The same image is edited over and over when the user runs the program.
+
+01/21/19
+I finished off the last of the filters and options and added a user input option so that the user can choose certain aspects like filters and intensities of some of the filters. 
